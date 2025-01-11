@@ -77,8 +77,12 @@ export default (): UserConfig => {
             return page ? `${page.outPagePath.replace(/^\//, "")}assets/[name].[hash].js` : "assets/[name].[hash].js";
           },
           chunkFileNames: (chunkInfo) => {
-            const page = mutltiPages.find((p) => chunkInfo.name.includes(p.name));
-            return page ? `${page.outPagePath.replace(/^\//, "")}assets/[name].[hash].js` : "assets/[name].[hash].js";
+            // 通过chunk的facadeModuleId匹配多页面路径
+            if (chunkInfo.facadeModuleId) {
+              const chunk = mutltiPages.find((p) => chunkInfo.facadeModuleId?.includes(p.outPagePath));
+              return chunk ? `${chunk.outPagePath.replace(/^\//, "")}assets/[name].[hash].js` : "assets/[name].[hash].js";
+            }
+            return "assets/[name].[hash].js";
           },
           assetFileNames: (assetInfo) => {
             // 处理 CSS、图片等资源

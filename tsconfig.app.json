@@ -11,5 +11,5 @@
     "noUncheckedSideEffectImports": true
   },
   "types": ["@types/markdown-it"],
-  "include": ["pages/**/*.ts", "pages/**/*.tsx", "pages/**/*.vue", "src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
+  "include": ["pages/**/*.ts", "pages/**/*.tsx", "pages/**/*.vue", "src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "pages/about/router/index.js"]
 }

@@ -48,7 +48,7 @@ const result = md.render(`# Vue.js 隐私政策 {#vue.js-privacy-policy}
 
 <template>
   <div class="aggreement-page">
-    <img src="/pages/agreement/assets/logo.svg" class="logo" style="width: 30px; height: 30px" alt="Vue logo" />
+    <img src="/pages/agreement/src/assets/logo.svg" class="logo" style="width: 30px; height: 30px" alt="Vue logo" />
     <div v-html="result"></div>
   </div>
 </template>

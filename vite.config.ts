@@ -16,13 +16,12 @@ const mutltiPages = [
   { name: "agreement", htmlName: "index.html", htmlPath: "pages/agreement/", outPagePath: "pages/agreement/" },
 ];
 
-// 生成页面path
-mutltiPages.forEach((page) => {
+// 所有页面
+const pages = [{ name: "index", htmlName: "index.html", htmlPath: "", outPagePath: "" }, ...mutltiPages];
+
+pages.forEach((page) => {
   page.path = pathResolve(page.htmlPath + page.htmlName);
 });
-
-// 所有页面
-const pages = [{ name: "index", htmlName: "index.html", path: pathResolve("index.html"), htmlPath: "", outPagePath: "" }, ...mutltiPages];
 
 // server插件
 const multiplePagePlugin = () => ({
@@ -61,7 +60,6 @@ const htmlPlugin = () => {
   };
 };
 
-// https://vite.dev/config/
 export default (): UserConfig => {
   return {
     plugins: [vue(), multiplePagePlugin()],

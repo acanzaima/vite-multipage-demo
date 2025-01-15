@@ -34,7 +34,7 @@ const multiplePagePlugin = () => ({
         }
 
         if (req.url.startsWith(`/${page.name}`)) {
-          req.url = `/${page.htmlPath}index.html`;
+          req.url = `/${page.htmlPath}${page.htmlName}`;
           break;
         }
       }
